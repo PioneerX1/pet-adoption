@@ -41,6 +41,7 @@ $(document).ready(function() {
       //reset Available and Adopted Pet Arrays, not All Pets
       availablePets = [];
       adoptedPets = [];
+      $("#available-pets").empty();
       //input from fields
       var name = $("#new-pet-name").val();
       var age = $("#new-pet-age").val();
@@ -54,6 +55,9 @@ $(document).ready(function() {
       sortPets();
 
       console.log(availablePets[0].petStatus);
+      for(var i=0; i < availablePets.length; i++) {
+        $("#available-pets").append("<li>" + availablePets[i].petName + "</li>");
+      }
 
 
   });
