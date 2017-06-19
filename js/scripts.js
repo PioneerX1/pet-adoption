@@ -21,7 +21,7 @@ Pet.prototype.getStatus = function() {
 //sort pets into available or adopted arrays accordingly, pass in pet object
 function sortPets() {
   for(var i=0; i < allPets.length; i++) {
-    if (allPets[i].getStatus === "available") {
+    if (allPets[i].petStatus === "available") {
       availablePets.push(allPets[i]);
     } else if (allPets[i].petStatus === "adopted") {
       adoptedPets.push(allPets[i]);
@@ -53,7 +53,8 @@ $(document).ready(function() {
       //sort newly initialized Available and Adopted Pet arrays accordingly
       sortPets();
 
-      //console.log(allPets[0].petStatus);
+      console.log(availablePets[0].petStatus);
+
 
   });
 });
