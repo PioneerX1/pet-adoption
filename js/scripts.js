@@ -36,29 +36,48 @@ var adoptedPets = [];
 
 //USER INTERFACE LOGIC
 $(document).ready(function() {
-    $("form#new-pet-form").submit(function(event) {
-      event.preventDefault();
-      //reset Available and Adopted Pet Arrays, not All Pets
-      availablePets = [];
-      adoptedPets = [];
-      $("#available-pets").empty();
-      //input from fields
-      var name = $("#new-pet-name").val();
-      var age = $("#new-pet-age").val();
-      var species = $("input:radio[name=species]:checked").val();
+  $("form#new-pet-form").submit(function(event) {
+    event.preventDefault();
+    //reset Available and Adopted Pet Arrays, not All Pets
+    availablePets = [];
+    adoptedPets = [];
+    //input from fields
+    var name = $("#new-pet-name").val();
+    var age = $("#new-pet-age").val();
+    var species = $("input:radio[name=species]:checked").val();
 
-      //create Pet object
-      var newPet = new Pet(name, age, species);
-      //populate All Pets array with new Pet object
-      allPets.push(newPet);
-      //sort newly initialized Available and Adopted Pet arrays accordingly
-      sortPets();
+    //create Pet object
+    var newPet = new Pet(name, age, species);
+    console.log(newPet);
+    //populate All Pets array with new Pet object
+    // allPets.push(newPet);
+    // //sort newly initialized Available and Adopted Pet arrays accordingly
+    // sortPets();
 
-      console.log(availablePets[0].petStatus);
-      for(var i=0; i < availablePets.length; i++) {
-        $("#available-pets").append("<li>" + availablePets[i].petName + "</li>");
-      }
+    //console.log(availablePets[0].petStatus);
+    // for(var i=0; i < availablePets.length; i++) {
+      $("#available-pets").append("<li>" + newPet.petName + "  " + newPet.petAge + "  " + newPet.petSpecies + "  " + "<button id="+ newPet.petName +" type='button' class='btn adoptedButton'>" + "Adopted" + "</button>" + "</li>");
 
+      $("button#" + newPet.petName + "").on("click", function() {
+        event.preventDefault();
+        // var temp = $(this).closest("li");
+        //console.log(temp);
+
+        // adoptedPets.push(availablePets[i]);
+        // console.log(adoptedPets.toString());
+        // $("#adopted-pets").append(temp);
+        $(this).closest("li").remove();
+        $("#adopted-pets").append("<li>" + newPet.petName + "</li>");
+    });
+    // }
+
+      // $("#available-pets").removeChild();
+
+
+  // $("#adoptedButton").on("click", function() {
+  //   event.preventDefault();
+  //   $("#available-pets").parent().remove();
 
   });
+
 });
