@@ -28,8 +28,8 @@ function sortPets(pet) {
 }
 
 //arrays for available and adopted pets
+var allPets = [];
 var availablePets = [];
 var adoptedPets = [];
-
 
 //USER INTERFACE LOGIC
