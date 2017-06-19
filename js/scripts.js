@@ -1,16 +1,19 @@
 // BUSINESS LOGIC
 
-function Pet(name, age, species) {
-  this.petName = name;
-  this.petAge = age;
-  this.petSpecies = species;
+//Pet constructor
+function Pet(petName, petAge, petSpecies, petStatus) {
+  this.petName = petName;
+  this.petAge = petAge;
+  this.petSpecies = petSpecies;
   this.petStatus = "available";
 }
 
+//prototype to change status
 Pet.prototype.changeStatus() {
   this.petStatus = "adopted";
 }
 
+//prototype to get status
 Pet.prototype.getStatus() {
   return this.petStatus;
 }
@@ -24,6 +27,7 @@ function sortPets(pet) {
   }
 }
 
+//arrays for available and adopted pets
 var availablePets = [];
 var adoptedPets = [];
 
