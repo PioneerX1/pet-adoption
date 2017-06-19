@@ -56,7 +56,11 @@ $(document).ready(function() {
 
     //console.log(availablePets[0].petStatus);
     // for(var i=0; i < availablePets.length; i++) {
-      $("#available-pets").append("<li>" + newPet.petName + "  " + newPet.petAge + "  " + newPet.petSpecies + "  " + "<button id="+ newPet.petName +" type='button' class='btn adoptedButton'>" + "Adopted" + "</button>" + "</li>");
+      $("#available-pets").append("<li>" + newPet.petName + "  " + "<span id="+newPet.petName+newPet.petAge+">" + newPet.petAge + "  " + newPet.petSpecies + "  " + "</span>"+ "<button id="+ newPet.petName +" type='button' class='btn adoptedButton'>" + "Adopted" + "</button>" + "</li>");
+
+      $("#"+newPet.petName+"").click(function() {
+        $("#"+newPet.petName+newPet.petAge+"").hide();
+      });
 
       $("button#" + newPet.petName + "").on("click", function() {
         event.preventDefault();
